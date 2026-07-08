@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         批量修改条目收藏状态
 // @namespace    https://bgm.tv/
-// @version      1.0
+// @version      1.0.0
 // @description  在 Bangumi 目录页/收藏页提供批量修改收藏状态的功能
 // @author       liang0721gs
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/index\/\d+/
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/(anime|book|music|game|real)\/list\/[^/]+\/(do|wish|collect|on_hold|dropped)/
 // @grant        none
+/** @updateURL   https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bgm-batch.user.js */
+/** @downloadURL https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bgm-batch.user.js */
 // @run-at       document-idle
 // @noframes
 // ==/UserScript==
