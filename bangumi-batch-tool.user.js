@@ -8,8 +8,8 @@
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/(anime|book|music|game|real)\/list\/[^/]+\/(do|wish|collect|on_hold|dropped)/
 // @grant        none
 // @license      MIT
-// @updateURL   https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bgm-batch.user.js
-// @downloadURL https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bgm-batch.user.js
+// @updateURL   https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bangumi-batch-tool.user.js
+// @downloadURL https://raw.githubusercontent.com/liang0721gs/bangumi-batch-tool/main/bangumi-batch-tool.user.js
 // @run-at       document-idle
 // @noframes
 // ==/UserScript==
