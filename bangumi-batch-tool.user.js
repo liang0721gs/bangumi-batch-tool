@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         批量修改条目收藏状态
+// @name         bangumi批量修改条目收藏状态
 // @namespace    https://bgm.tv/
 // @version      1.0.0
 // @description  在 Bangumi 目录页/收藏页提供批量修改收藏状态的功能
