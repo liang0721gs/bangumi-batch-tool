@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bangumi批量修改条目收藏状态
 // @namespace    https://bgm.tv/
-// @version      1.0.0
+// @version      1.0.1
 // @description  在 Bangumi 目录页/收藏页提供批量修改收藏状态的功能
 // @author       liang0721gs
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/index\/\d+/
@@ -327,7 +327,10 @@
                closeModal();
         };
         modal.onclick = (e) => {
-            if (e.target === modal) closeModal();
+               if (!modal.querySelector('.bgm-batch-panel').contains(e.target)) {
+               modal.style.display = 'none';
+               window._bgmBatchPanelCache = modal;
+            }
         };
         modal.querySelector('#showLogBtn').onclick = showLogPanel;
         itemSearch.oninput = applyFilters;
@@ -998,6 +1001,28 @@
                 white-space: pre-wrap;
                 word-break: break-all;
             }
+           @media (max-width: 768px) {
+               .bgm-batch-panel.is-resizable {
+                   min-width: unset;
+                   min-height: unset;
+                   max-width: 90vw;
+                   max-height: 90vh;
+                   width: 90vw;
+                   height: 90vh;
+                   resize: none;
+               }
+               #addToCatalogBtn {
+                       width: 60px;
+                       flex: none;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       text-align: center;
+                       line-height: 1.2;
+                       white-space: normal;
+                       word-break: break-all;
+                   }
+               }
 
         `;
         document.head.appendChild(style);
