@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bangumi批量修改条目收藏状态
 // @namespace    https://bgm.tv/
-// @version      1.0.2
+// @version      1.0.3
 // @description  在 Bangumi 目录页/收藏页提供批量修改收藏状态的功能
 // @author       liang0721gs
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/index\/\d+/
@@ -70,7 +70,7 @@
         5: 'dropped'
     };
     const STATUS_LABELS = {
-        all:   { 1: '想做', 2: '做过', 3: '在做', 4: '搁置', 5: '抛弃' },
+        all:   { 1: '想X', 2: 'X过', 3: '在X', 4: '搁置', 5: '抛弃' },
         anime: { 1: '想看', 2: '看过', 3: '在看', 4: '搁置', 5: '抛弃' },
         book:  { 1: '想读', 2: '读过', 3: '在读', 4: '搁置', 5: '抛弃' },
         music: { 1: '想听', 2: '听过', 3: '在听', 4: '搁置', 5: '抛弃' },
