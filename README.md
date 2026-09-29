@@ -19,17 +19,17 @@
 ![](https://lsky.ry.mk/i/2026/07/21/2d4f5a9376190.webp)
 
 
-演示：
+### 演示：
 从目录和收藏页添加
-![](https://lsky.ry.mk/i/2026/07/08/2493971ec8620.gif)
+![](./images/add.gif)
 
 修改收藏状态和从目录中删除
-![](https://lsky.ry.mk/i/2026/07/08/8e089b8ba84b9.gif)
+![](./images/modify..gif)
 
 创建目录并加入条目
-![](https://lsky.ry.mk/i/2026/07/08/d8870c080e76b.gif)
+![](./images/create.gif)
 
-## 安装
+# 安装
 
 <a href="https://bgm.tv/dev/app/4620" title="Bangumi 番组计划"><img src="http://bgm.tv/img/ico/bgm80-15.png" border="0" alt="Bangumi"></a>
 
