@@ -24,7 +24,7 @@
 ![](./images/add.gif)
 
 修改收藏状态和从目录中删除
-![](./images/modify..gif)
+![](./images/modify.gif)
 
 创建目录并加入条目
 ![](./images/create.gif)
