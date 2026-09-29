@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bangumi批量修改条目收藏状态
 // @namespace    https://bgm.tv/
-// @version      1.0.3
+// @version      1.0.4
 // @description  在 Bangumi 目录页/收藏页提供批量修改收藏状态的功能
 // @author       liang0721gs
 // @include      /^https?:\/\/.*\.?(bgm\.tv|bangumi\.tv|chii\.in)\/index\/\d+/
@@ -184,9 +184,9 @@
             AuthManager.initiateAuth();
             return;
         }
-       if (window._bgmBatchPanelCache) {
-           window._bgmBatchPanelCache.style.display = 'flex';
-           return;
+        if (window._bgmBatchPanelCache) {
+            window._bgmBatchPanelCache.style.display = 'flex';
+            return;
         }
         showBatchPanel();
     }
@@ -213,7 +213,7 @@
     async function showBatchPanel() {
         if (!window._bgmBatchPanelCache) {
             sessionLogHistory = [];
-         }
+        }
         const items = getPageItems();
         if (items.length === 0) {
             showToast('当前页面没有找到可操作的条目', 'warning');
@@ -234,7 +234,7 @@
                 <div class="panel-header">
                     <h2>批量管理 (共 ${items.length} 个条目)</h2>
                     <button id="showLogBtn" class="bgm-panel-btn-text">操作日志</button>
-                   <span id="bgm-minimize-btn" class="bgm-panel-btn-text">—</span>
+                    <span id="bgm-minimize-btn" class="bgm-panel-btn-text">—</span>
                     <span class="bgm-batch-close-btn">&times;</span>
                 </div>
                 <div class="panel-body">
@@ -256,7 +256,11 @@
                             <div class="list-item" data-is-collected="${item.isCollected}">
                                 <input type="checkbox" class="item-select" data-subject-id="${item.subjectId}">
                                 <div class="item-info">
-                                    <div class="item-title">${item.title}</div>
+                                    <div class="item-title">
+                                        <a href="/subject/${item.subjectId}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                        ${item.title}
+                                        </a>
+                                    </div>
                                     <div class="item-meta">ID: ${item.subjectId} | ${item.displayStatus}</div>
                                 </div>
                             </div>
@@ -279,17 +283,16 @@
             </div>
         `;
         const modal = createModal(modalHtml);
-        const panel = modal.querySelector('.bgm-batch-panel');
         modal.querySelector('#bgm-minimize-btn').onclick = () => {
-                modal.style.display = 'none';
-                window._bgmBatchPanelCache = modal; 
+            modal.style.display = 'none';
+            window._bgmBatchPanelCache = modal; 
         };
         const allListItems = modal.querySelectorAll('.list-item');
         const itemSearch = modal.querySelector('#itemSearch');
         const collectionFilterBtn = modal.querySelector('#collectionFilterBtn');
         const showFilterBtn = modal.querySelector('#showFilterBtn');
-        let collectionState = 0; // 0:无 1:仅已收藏 2:仅未收藏
-        let showState = 0;       // 0:无 1:仅已勾选 2:仅未勾选
+        let collectionState = 0;
+        let showState = 0;
         const collectionLabels = ['显示已/未收藏', '显示已收藏 ✔', '显示未收藏 ✘'];
         const showLabels = ['显示已/未勾选', '显示已勾选 ✔', '显示未勾选 ✘'];
         const updateSelectedCount = () => {
@@ -323,19 +326,19 @@
         };
 
         modal.querySelector('.bgm-batch-close-btn').onclick = () => {
-               window._bgmBatchPanelCache = null; 
-               closeModal();
+            window._bgmBatchPanelCache = null; 
+            closeModal();
         };
         let isMouseDownOnModal = false;
         modal.onmousedown = (e) => {
             isMouseDownOnModal = (e.target === modal);
         };
         modal.onclick = (e) => {
-               if (isMouseDownOnModal && e.target === modal) {
-                   modal.style.display = 'none';
-                   window._bgmBatchPanelCache = modal;
-              }
-              isMouseDownOnModal = false;
+            if (isMouseDownOnModal && e.target === modal) {
+                modal.style.display = 'none';
+                window._bgmBatchPanelCache = modal;
+            }
+            isMouseDownOnModal = false;
         };
         modal.querySelector('#showLogBtn').onclick = showLogPanel;
         itemSearch.oninput = applyFilters;
@@ -505,7 +508,6 @@
             await new Promise(r => setTimeout(r, 250));
         }
         const summaryMsg = `🎉 操作完成！成功: ${successCount}, 失败: ${failCount}`;
-        showToast(summaryMsg, failCount > 0 ? 'warning' : 'success');
         sessionLogHistory.push(`[${new Date().toLocaleTimeString()}] ${summaryMsg}`);
     }
 
@@ -1017,24 +1019,23 @@
                    resize: none;
                }
                #addToCatalogBtn {
-                       width: 60px;
-                       flex: none;
-                       display: flex;
-                       align-items: center;
-                       justify-content: center;
-                       text-align: center;
-                       line-height: 1.2;
-                       white-space: normal;
-                       word-break: break-all;
-                   }
+                   width: 60px;
+                   flex: none;
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   text-align: center;
+                   line-height: 1.2;
+                   white-space: normal;
+                   word-break: break-all;
                }
-
+           }
         `;
         document.head.appendChild(style);
     }
 
     function initScript() {
-        if (AuthManager.handleCallback()) return;
+        AuthManager.handleCallback();
         addGlobalStyles();
         setTimeout(createBatchButton, 1000);
     }
