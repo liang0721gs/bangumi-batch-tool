@@ -7,7 +7,7 @@
 
 [![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-Install-orange?logo=greasyfork&logoColor=white)]([你的Greasy%20Fork链接](https://greasyfork.org/zh-CN/scripts/586625-bangumi%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9D%A1%E7%9B%AE%E6%94%B6%E8%97%8F%E7%8A%B6%E6%80%81))
 
-## 简介
+## 效果
 在目录内/收藏页面右下角"用户名"左边添加“批量操作”按钮
 
 可将页面内条目的收藏状态改变（wish / collect / do / on_hold / dropped 以及从收藏中删除）
@@ -29,7 +29,7 @@
 ![](https://lsky.ry.mk/i/2026/07/21/2d4f5a9376190.webp)
 
 
-### 演示：
+## 演示
 从目录和收藏页添加
 ![](./images/add.gif)
 
